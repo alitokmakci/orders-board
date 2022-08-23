@@ -7,6 +7,7 @@ specifiers:
   autoprefixer: ^10.4.8
   graphql: ^16.6.0
   graphql-tag: ^2.12.6
+  js-cookie: ^3.0.1
   pinia: ^2.0.20
   postcss: ^8.4.16
   tailwindcss: ^3.1.8
@@ -20,6 +21,7 @@ dependencies:
   autoprefixer: 10.4.8_postcss@8.4.16
   graphql: 16.6.0
   graphql-tag: 2.12.6_graphql@16.6.0
+  js-cookie: 3.0.1
   pinia: 2.0.20_vue@3.2.37
   postcss: 8.4.16
   tailwindcss: 3.1.8
@@ -709,6 +711,11 @@ packages:
   /is-number/7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
+    dev: false
+
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
     dev: false
 
   /js-tokens/4.0.0:

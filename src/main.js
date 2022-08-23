@@ -11,6 +11,8 @@ import router from './router'
 import App from './App.vue'
 // import styles
 import './assets/app.css'
+import Cookies from 'js-cookie'
+import useTemplateStore from './store/useTemplateStore'
 
 // HTTP connection to the API
 const httpLink = createHttpLink({
@@ -35,12 +37,18 @@ const app = createApp({
 
 	render: () => h(App),
 })
+
 // Create store
 const store = createPinia()
 
 // Add plugins to the app
 app.use(store)
 app.use(router)
+
+// Check if dark mode cookie exist before mount the app
+if (Cookies.get('dark')) {
+	useTemplateStore().setDarkMode(Cookies.get('dark') === 'true')
+}
 
 // Mount the app
 app.mount('#app')
