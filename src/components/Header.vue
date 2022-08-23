@@ -18,7 +18,7 @@
 						@click="handleSwitchTheme"
 						variant="text"
 						size="sm"
-						class="text-lg"
+						class="text-lg mr-2"
 					>
 						<i :class="darkModeIcon"></i>
 					</Button>

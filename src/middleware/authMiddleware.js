@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 const ensureUserAuthneticated = () => {
-	return Cookies.get('token')
+	return Cookies.get('GQ_TOKEN')
 }
 
 export default ensureUserAuthneticated
