@@ -1,6 +1,6 @@
 <template>
 	<button
-		class="transition-all duration-300 px-4 py-2 text-sm font-medium rounded-md focus:ring-2 focus:outline-none focus:shadow-outline"
+		class="transition-all duration-300 text-sm font-medium rounded-md focus:ring-2 focus:outline-none focus:shadow-outline"
 		:class="{
 			'bg-blue-500 hover:bg-blue-700 text-white focus:ring-blue-500 focus:border-blue-500':
 				variant === 'blue',
@@ -8,6 +8,9 @@
 				variant === 'white',
 			'text-gray-700 hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 focus:ring-2 focus:ring-gray-300':
 				variant === 'text',
+			'px-4 py-2': size === 'md',
+			'px-3 py-1': size === 'sm',
+			'px-5 py-3': size === 'lg',
 		}"
 		:type="type"
 	>
@@ -16,7 +19,7 @@
 </template>
 
 <script setup>
-const { variant, type } = defineProps({
+const { variant, type, size } = defineProps({
 	variant: {
 		type: String,
 		default: 'blue',
@@ -24,6 +27,10 @@ const { variant, type } = defineProps({
 	type: {
 		type: String,
 		default: 'button',
+	},
+	size: {
+		type: String,
+		default: 'md',
 	},
 })
 </script>

@@ -1,5 +1,7 @@
 <template>
-	<div>Orders Page</div>
+	<AppLayout title="Orders"></AppLayout>
 </template>
 
-<script setup></script>
+<script setup>
+import AppLayout from '../layouts/AppLayout.vue'
+</script>

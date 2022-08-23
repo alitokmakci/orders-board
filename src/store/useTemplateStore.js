@@ -4,10 +4,14 @@ import { defineStore } from 'pinia'
 const useTemplateStore = defineStore('templateStore', {
 	state: () => ({
 		darkMode: false,
+		sidebarOpen: true,
 	}),
 	getters: {
 		isDarkModeEnabled(state) {
 			return state.dark
+		},
+		isSidebarOpen(state) {
+			return state.sidebarOpen
 		},
 	},
 	actions: {
@@ -30,6 +34,12 @@ const useTemplateStore = defineStore('templateStore', {
 			} else {
 				document.documentElement.classList.remove('dark')
 			}
+		},
+		/**
+		 * Toggle Sidebar
+		 */
+		toggleSidebar() {
+			this.sidebarOpen = !this.sidebarOpen
 		},
 	},
 })

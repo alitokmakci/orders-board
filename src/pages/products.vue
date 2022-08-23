@@ -1,5 +1,7 @@
 <template>
-	<div>Products Page</div>
+	<AppLayout title="Products"></AppLayout>
 </template>
 
-<script setup></script>
+<script setup>
+import AppLayout from '../layouts/AppLayout.vue'
+</script>

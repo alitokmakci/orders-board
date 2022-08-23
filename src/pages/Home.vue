@@ -1,5 +1,7 @@
 <template>
-	<div>Home Page</div>
+	<AppLayout title="Dashboard"></AppLayout>
 </template>
 
-<script setup></script>
+<script setup>
+import AppLayout from '../layouts/AppLayout.vue'
+</script>
