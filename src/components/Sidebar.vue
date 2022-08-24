@@ -11,7 +11,7 @@
 			<h1
 				class="ml-6 text-xl font-semibold tracking-wider text-gray-600 dark:text-gray-200"
 			>
-				OrderHUB
+				OrdersBoard
 			</h1>
 			<Button
 				@click="handleToggle"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onBeforeMount, onMounted } from 'vue'
 import useTemplateStore from '../store/useTemplateStore'
 import Button from './Button.vue'
 
@@ -42,4 +42,20 @@ const open = computed(() => templateStore.isSidebarOpen)
 const handleToggle = () => {
 	templateStore.toggleSidebar()
 }
+
+onBeforeMount(() => {
+	window.innerWidth < 768
+		? templateStore.toggleSidebar(false)
+		: templateStore.toggleSidebar(true)
+
+	window.addEventListener('resize', () => {
+		if (window.innerWidth < 768) {
+			templateStore.toggleSidebar(false)
+		} else {
+			templateStore.toggleSidebar(true)
+		}
+	})
+})
+
+onMounted(() => {})
 </script>

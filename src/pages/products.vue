@@ -1,12 +1,9 @@
 <template>
 	<AppLayout title="Products">
-		<Card class="mb-6">
-			<h1
-				class="mb-6 font-medium text-lg text-gray-600 dark:text-gray-200"
+		<Card class="mb-6" title="Options">
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 			>
-				Options
-			</h1>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 				<div class="mb-6">
 					<Select
 						label="Sayfa Başına Veri:"

@@ -1,11 +1,11 @@
 <template>
 	<nav aria-label="Page navigation example">
 		<ul class="flex -space-x-px">
-			<li>
+			<li class="block">
 				<a
 					@click="goPrev"
 					href="#"
-					class="block py-2 px-3 leading-tight rounded-l-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700"
+					class="block py-2 px-2 leading-tight rounded-l-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700"
 					:class="{
 						'text-gray-300 bg-gray-100 cursor-default':
 							currentPage === 1,
@@ -28,13 +28,13 @@
 					</svg>
 				</a>
 			</li>
-			<li v-for="page in pages" :key="page">
+			<li v-for="page in pages" :key="page" class="block">
 				<a
 					@click="goToPage(page)"
 					href="#"
-					class="py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+					class="py-2 px-4 md:px-3 items-center justify-center leading-tight border border-gray-300 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
 					:class="{
-						'text-blue-600 bg-blue-50 dark:text-white dark:bg-slate-700 block':
+						'text-blue-600 bg-blue-50 dark:text-white dark:bg-slate-700 flex':
 							page === currentPage,
 						'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 hidden md:block':
 							page !== currentPage && page !== '...',
@@ -45,11 +45,11 @@
 					{{ page }}
 				</a>
 			</li>
-			<li>
+			<li class="block">
 				<a
 					@click="goNext"
 					href="#"
-					class="block py-2 px-3 leading-tight rounded-r-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700"
+					class="block py-2 px-2 leading-tight rounded-r-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700"
 					:class="{
 						'text-gray-300 bg-gray-100 cursor-default':
 							currentPage === lastPage,

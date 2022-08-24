@@ -39,8 +39,12 @@ const useTemplateStore = defineStore('templateStore', {
 		/**
 		 * Toggle Sidebar
 		 */
-		toggleSidebar() {
-			this.sidebarOpen = !this.sidebarOpen
+		toggleSidebar(payload = null) {
+			if (payload === null) {
+				payload = !this.sidebarOpen
+			}
+
+			this.sidebarOpen = payload
 		},
 		/**
 		 * Set Loading status

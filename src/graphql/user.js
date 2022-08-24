@@ -11,6 +11,27 @@ export const FETCH_USER_QUERY = gql`
 		user {
 			name
 			email
+			contact
+			address1
+			address2
+			address3
+			city
+			country
+			postCode
+			telephone
+			telephone2
+			mobile
+			fax
+			companyName
+			contactName
+			contactEmail
+			userCode
+			creditLimit
+			currencyCode
+			marketingEmailEnabled
+			marketingSmsEnabled
+			marketingNotificationEnabled
+			showAllPricesIncludingVat
 		}
 	}
 `

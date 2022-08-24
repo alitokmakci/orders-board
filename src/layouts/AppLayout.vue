@@ -15,14 +15,14 @@
 		<div class="w-full overflow-y-scroll">
 			<Header />
 			<div class="container px-6 py-4 mx-auto mb-10">
-				<div class="flex items-center justify-between mb-8">
+				<div class="md:flex md:items-center md:justify-between mb-8">
 					<h1
-						class="text-2xl font-semibold text-gray-600 dark:text-gray-300"
+						class="mb-4 md:mb-0 text-2xl font-semibold text-gray-600 dark:text-gray-300"
 					>
 						{{ title }}
 					</h1>
 
-					<slot name="title-button" />
+					<slot name="title-right" />
 				</div>
 				<slot />
 			</div>

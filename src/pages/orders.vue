@@ -1,17 +1,19 @@
 <template>
 	<AppLayout title="Orders">
-		<Card class="mb-6">
-			<h1 class="font-medium text-lg text-gray-600 dark:text-gray-200">
-				Options
-			</h1>
-			<p class="mb-6 text-sm text-red-500">
-				*Default value of the `End Date` is yesterday to list past
-				orders
-			</p>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+		<Card class="mb-6" title="Options">
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+			>
 				<div class="mb-6">
 					<Input label="End Date:" type="date" v-model="endDate" />
 				</div>
+			</div>
+			<p class="text-sm text-red-500">
+				*Default value of the `End Date` is yesterday for listing past
+				orders
+			</p>
+			<div class="flex justify-end">
+				<Button variant="blue" @click="fetchOrders"> Filter </Button>
 			</div>
 		</Card>
 		<Table>
@@ -84,6 +86,7 @@ import toaster from '../utils/toaster'
 import Dropdown from '../components/Dropdown.vue'
 import DropdownItem from '../components/DropdownItem.vue'
 import Input from '../components/form/Input.vue'
+import Button from '../components/Button.vue'
 
 const orderStore = useOrderStore()
 
@@ -113,11 +116,4 @@ onBeforeMount(async () => {
 
 	await fetchOrders()
 })
-
-watch(
-	() => endDate.value,
-	async () => {
-		await fetchOrders()
-	}
-)
 </script>

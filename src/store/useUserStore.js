@@ -1,5 +1,6 @@
-import Cookies from 'js-cookie'
+import { watch } from 'vue'
 import { defineStore } from 'pinia'
+import Cookies from 'js-cookie'
 import {
 	useQuery,
 	provideApolloClient,
@@ -11,6 +12,7 @@ import {
 	LOGOUT_MUTATION,
 } from '../graphql/user'
 import apolloClient from '../utils/apollo'
+import useTemplateStore from './useTemplateStore'
 
 provideApolloClient(apolloClient)
 
@@ -20,7 +22,7 @@ const useUserStore = defineStore('userStore', {
 	}),
 	getters: {
 		getToken() {
-			return Cookies.get('token')
+			return Cookies.get('GQ_TOKEN')
 		},
 	},
 	actions: {
@@ -29,7 +31,10 @@ const useUserStore = defineStore('userStore', {
 		 * @param {Object} token
 		 */
 		async login(payload) {
-			const { mutate, onDone, onError } = useMutation(
+			const templateStore = useTemplateStore()
+			templateStore.setLoading(true)
+
+			const { mutate, onDone, onError, loading } = useMutation(
 				LOGIN_MUTATION,
 				() => ({
 					variables: {
@@ -42,10 +47,21 @@ const useUserStore = defineStore('userStore', {
 			mutate()
 
 			return new Promise((resolve, reject) => {
+				watch(
+					() => loading,
+					(value) => {
+						templateStore.setLoading(value)
+					},
+					{
+						immediate: true,
+					}
+				)
+
 				onDone((res) => {
 					const token = res.data.login
 					Cookies.set('GQ_TOKEN', token)
 
+					this.loggedIn = true
 					resolve(true)
 				})
 
@@ -61,15 +77,37 @@ const useUserStore = defineStore('userStore', {
 		 * @param {String} token
 		 */
 		async fetchUser() {
-			const { onResult, onError } = useQuery(FETCH_USER_QUERY)
+			const templateStore = useTemplateStore()
+
+			templateStore.setLoading(true)
+
+			const { onResult, onError, loading } = useQuery(
+				FETCH_USER_QUERY,
+				{},
+				{
+					fetchPolicy: 'network-only',
+				}
+			)
 
 			return new Promise((resolve, reject) => {
+				watch(
+					() => loading,
+					(value) => {
+						templateStore.setLoading(value)
+					},
+					{
+						immediate: true,
+					}
+				)
+
 				onResult(({ data }) => {
 					this.user = data.user
+
 					resolve(true)
 				})
 
 				onError((error) => {
+					// TODO Show Error
 					Cookies.remove('GQ_TOKEN')
 					resolve(false)
 				})
@@ -80,11 +118,26 @@ const useUserStore = defineStore('userStore', {
 		 * Logout current user
 		 */
 		async logout() {
-			const { mutate, onDone, onError } = useMutation(LOGOUT_MUTATION)
+			const templateStore = useTemplateStore()
+
+			templateStore.setLoading(true)
+
+			const { mutate, onDone, onError, loading } =
+				useMutation(LOGOUT_MUTATION)
 
 			mutate()
 
 			return new Promise((resolve, reject) => {
+				watch(
+					() => loading,
+					(value) => {
+						templateStore.setLoading(value)
+					},
+					{
+						immediate: true,
+					}
+				)
+
 				onDone((res) => {
 					if (res) {
 						Cookies.remove('GQ_TOKEN')

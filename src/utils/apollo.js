@@ -12,6 +12,7 @@ const httpLink = createHttpLink({
 	uri: 'https://simplisaleshw.cotunnel.com/graphql',
 })
 
+// Create ApolloLink with authorization header
 const authLink = new ApolloLink((operation, forward) => {
 	// add the authorization to the headers
 	const token = Cookies.get('GQ_TOKEN')

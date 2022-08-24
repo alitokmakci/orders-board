@@ -1,10 +1,7 @@
 <template>
-	<label
-		v-if="label"
-		class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-	>
+	<Label v-if="label">
 		{{ label }}
-	</label>
+	</Label>
 	<select
 		:disabled="disabled"
 		:value="modelValue"
@@ -16,6 +13,7 @@
 </template>
 
 <script setup>
+import Label from './Label.vue'
 const { label, modelValue, disabled, onChange } = defineProps({
 	modelValue: '',
 	label: {
