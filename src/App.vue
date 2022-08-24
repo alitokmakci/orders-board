@@ -20,10 +20,23 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import useTemplateStore from './store/useTemplateStore'
+
+const route = useRoute()
 
 const templateStore = useTemplateStore()
 
 const loading = computed(() => templateStore.loading)
+
+watch(
+	() => route.path,
+	() => {
+		document.title = route.meta.title
+	},
+	{
+		immediate: true,
+	}
+)
 </script>

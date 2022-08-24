@@ -17,6 +17,7 @@ export const routes = [
 		meta: {
 			auth: true,
 			layout: true,
+			title: 'OrdersBoard',
 		},
 	},
 	{
@@ -25,6 +26,7 @@ export const routes = [
 		meta: {
 			auth: false,
 			layout: false,
+			title: 'OrdersBoard Login',
 		},
 	},
 	{
@@ -33,6 +35,7 @@ export const routes = [
 		meta: {
 			auth: true,
 			layout: true,
+			title: 'OrdersBoard Products',
 		},
 	},
 	{
@@ -41,6 +44,7 @@ export const routes = [
 		meta: {
 			auth: true,
 			layout: true,
+			title: 'OrdersBoard Orders',
 		},
 	},
 	{
@@ -49,6 +53,7 @@ export const routes = [
 		meta: {
 			auth: true,
 			layout: true,
+			title: 'OrdersBoard Account',
 		},
 	},
 ]
