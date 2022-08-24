@@ -12,9 +12,9 @@
 			</SidebarItem>
 		</Sidebar>
 
-		<div class="w-full overflow-y-scroll">
+		<div class="w-full overflow-y-scroll flex flex-col">
 			<Header />
-			<div class="container px-6 py-4 mx-auto mb-10">
+			<div class="container px-6 py-4 mx-auto flex-grow">
 				<div class="md:flex md:items-center md:justify-between mb-8">
 					<h1
 						class="mb-4 md:mb-0 text-2xl font-semibold text-gray-600 dark:text-gray-300"
@@ -26,6 +26,7 @@
 				</div>
 				<slot />
 			</div>
+			<Footer />
 		</div>
 	</div>
 </template>
@@ -34,6 +35,8 @@
 import Header from '../components/Header.vue'
 import Sidebar from '../components/Sidebar.vue'
 import SidebarItem from '../components/SidebarItem.vue'
+import Footer from '../components/Footer.vue'
+
 const { title } = defineProps({
 	title: {
 		type: String,

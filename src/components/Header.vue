@@ -1,6 +1,6 @@
 <template>
 	<div class="flex items-center h-16">
-		<div class="container px-6 mx-auto">
+		<div class="container px-6 mx-auto py-2">
 			<div
 				class="flex items-center justify-between text-sm font-medium text-gray-700"
 			>
