@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.router-link-exact-active {
+.sidebar-item.router-link-exact-active {
     @apply text-gray-900 dark:text-white;
 }
 

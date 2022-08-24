@@ -9,9 +9,9 @@
 	>
 		<div class="flex items-center h-16 justify-between">
 			<h1
-				class="ml-6 text-xl font-semibold tracking-wider text-gray-600 dark:text-gray-200"
+				class="ml-6 text-xl font-semibold tracking-wider text-gray-600 dark:text-gray-200 hover:text-black dark:hover:text-gray-50"
 			>
-				OrdersBoard
+				<router-link to="/"> OrdersBoard </router-link>
 			</h1>
 			<Button
 				@click="handleToggle"

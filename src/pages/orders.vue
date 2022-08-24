@@ -52,7 +52,7 @@
 					<b>{{ order.total }}</b>
 				</Cell>
 				<Cell>
-					{{ order.status }}
+					<OrderStatusBadge :status="order.status" />
 				</Cell>
 				<Cell>
 					<Dropdown title="Options">
@@ -87,6 +87,7 @@ import Dropdown from '../components/Dropdown.vue'
 import DropdownItem from '../components/DropdownItem.vue'
 import Input from '../components/form/Input.vue'
 import Button from '../components/Button.vue'
+import OrderStatusBadge from '../components/OrderStatusBadge.vue'
 
 const orderStore = useOrderStore()
 
