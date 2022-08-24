@@ -1,7 +1,7 @@
 <template>
 	<AppLayout title="Dashboard">
 		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-			<Card>
+			<Card class="hover:scale-105 transition-all">
 				<div class="grid grid-cols-4 gap-6">
 					<div class="p-2">
 						<div
@@ -14,19 +14,19 @@
 					</div>
 					<div class="col-span-3 flex flex-col justify-center">
 						<h1
-							class="text-black text-lg font-bold dark:text-gray-100"
+							class="text-black text-lg font-bold dark:text-gray-100 select-none"
 						>
 							4589
 						</h1>
 						<span
-							class="text-sm text-gray-600 dark:text-gray-300 font-light"
+							class="text-sm text-gray-600 dark:text-gray-300 font-light select-none"
 						>
 							Products
 						</span>
 					</div>
 				</div>
 			</Card>
-			<Card>
+			<Card class="hover:scale-105 transition-all">
 				<div class="grid grid-cols-4 gap-6">
 					<div class="p-2">
 						<div
@@ -39,19 +39,19 @@
 					</div>
 					<div class="col-span-3 flex flex-col justify-center">
 						<h1
-							class="text-black text-lg font-bold dark:text-gray-100"
+							class="text-black text-lg font-bold dark:text-gray-100 select-none"
 						>
 							£ 56987
 						</h1>
 						<span
-							class="text-sm text-gray-600 dark:text-gray-300 font-light"
+							class="text-sm text-gray-600 dark:text-gray-300 font-light select-none"
 						>
 							Total Sales
 						</span>
 					</div>
 				</div>
 			</Card>
-			<Card>
+			<Card class="hover:scale-105 transition-all">
 				<div class="grid grid-cols-4 gap-6">
 					<div class="p-2">
 						<div
@@ -64,19 +64,19 @@
 					</div>
 					<div class="col-span-3 flex flex-col justify-center">
 						<h1
-							class="text-black text-lg font-bold dark:text-gray-100"
+							class="text-black text-lg font-bold dark:text-gray-100 select-none"
 						>
 							8920
 						</h1>
 						<span
-							class="text-sm text-gray-600 dark:text-gray-300 font-light"
+							class="text-sm text-gray-600 dark:text-gray-300 font-light select-none"
 						>
 							Delivered Orders
 						</span>
 					</div>
 				</div>
 			</Card>
-			<Card>
+			<Card class="hover:scale-105 transition-all">
 				<div class="grid grid-cols-4 gap-6">
 					<div class="p-2">
 						<div
@@ -89,12 +89,12 @@
 					</div>
 					<div class="col-span-3 flex flex-col justify-center">
 						<h1
-							class="text-black text-lg font-bold dark:text-gray-100"
+							class="text-black text-lg font-bold dark:text-gray-100 select-none"
 						>
 							128
 						</h1>
 						<span
-							class="text-sm text-gray-600 dark:text-gray-300 font-light"
+							class="text-sm text-gray-600 dark:text-gray-300 font-light select-none"
 						>
 							Pending Orders
 						</span>
