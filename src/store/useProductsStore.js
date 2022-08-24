@@ -44,20 +44,9 @@ const useProductStore = defineStore('productStore', {
 					}
 				)
 
-				watch(
-					() => result,
-					(res) => {
-						console.log(res.value)
-					},
-					{
-						immediate: true,
-					}
-				)
-
 				onResult(({ data }) => {
 					this.count = data.products.count
 					this.products = data.products.products
-					console.log('here')
 					resolve(true)
 				})
 

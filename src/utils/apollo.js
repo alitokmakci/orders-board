@@ -13,7 +13,6 @@ const httpLink = createHttpLink({
 })
 
 const authLink = new ApolloLink((operation, forward) => {
-	console.log('burada')
 	// add the authorization to the headers
 	const token = Cookies.get('GQ_TOKEN')
 	operation.setContext({
