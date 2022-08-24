@@ -16,7 +16,7 @@
 			:class="{
 				invisible: !open,
 			}"
-			class="absolute z-10 py-1 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-slate-800 rounded shadow w-44"
+			class="absolute z-10 py-1 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-slate-700 rounded shadow w-44"
 			ref="menuItem"
 			@click="toggle(false)"
 		>
