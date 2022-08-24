@@ -9,3 +9,7 @@
 .sidebar-item:not(.router-link-exact-active) {
     @apply text-gray-400 dark:text-gray-500;
 }
+
+.toast-container {
+    @apply fixed top-6 right-6 z-[9999999];
+}

@@ -5,6 +5,7 @@ const useTemplateStore = defineStore('templateStore', {
 	state: () => ({
 		darkMode: false,
 		sidebarOpen: true,
+		loading: false,
 	}),
 	getters: {
 		isDarkModeEnabled(state) {
@@ -18,7 +19,7 @@ const useTemplateStore = defineStore('templateStore', {
 		/**
 		 * Toggle or set darkMode attrbiute
 		 *
-		 * @param {bool} payload
+		 * @param {Boolean} payload
 		 */
 		setDarkMode(payload = null) {
 			if (payload === null) {
@@ -40,6 +41,13 @@ const useTemplateStore = defineStore('templateStore', {
 		 */
 		toggleSidebar() {
 			this.sidebarOpen = !this.sidebarOpen
+		},
+		/**
+		 * Set Loading status
+		 * @param {Boolean} payload
+		 */
+		setLoading(payload) {
+			this.loading = payload
 		},
 	},
 })

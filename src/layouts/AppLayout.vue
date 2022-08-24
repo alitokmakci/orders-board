@@ -1,7 +1,9 @@
 <template>
 	<div class="flex w-screen h-screen overflow-hidden">
 		<Sidebar>
-			<SidebarItem to="/" icon="ri-dashboard-fill">Dashboard</SidebarItem>
+			<SidebarItem to="/" icon="ri-dashboard-fill">
+				Dashboard
+			</SidebarItem>
 			<SidebarItem to="/orders" icon="ri-shopping-basket-fill">
 				Orders
 			</SidebarItem>

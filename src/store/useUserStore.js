@@ -1,14 +1,16 @@
 import Cookies from 'js-cookie'
 import { defineStore } from 'pinia'
-import { useQuery } from '@vue/apollo-composable'
+import {
+	useQuery,
+	provideApolloClient,
+	useMutation,
+} from '@vue/apollo-composable'
 import {
 	FETCH_USER_QUERY,
 	LOGIN_MUTATION,
 	LOGOUT_MUTATION,
 } from '../graphql/user'
-import { provideApolloClient } from '@vue/apollo-composable'
 import apolloClient from '../utils/apollo'
-import { useMutation } from '@vue/apollo-composable'
 
 provideApolloClient(apolloClient)
 
