@@ -11,6 +11,25 @@ export const FETCH_ORDER_QUERY = gql`
 			total
 			subTotal
 			vatTotal
+			discountTotal
+			details {
+				id
+				unit
+				quantity
+				price
+				vatRate
+				subTotal
+				discountTotal
+				vatTotal
+				total
+				product {
+					id
+					code
+					stockStatus {
+						available
+					}
+				}
+			}
 		}
 	}
 `

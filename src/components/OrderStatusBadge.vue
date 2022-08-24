@@ -2,18 +2,21 @@
 	<span
 		class="text-xs font-medium bg-green-500 text-white px-2 py-1 rounded-md"
 		v-if="!status"
-		>Completed</span
 	>
+		Completed
+	</span>
 	<span
 		class="text-xs font-medium bg-yellow-500 text-white px-2 py-1 rounded-md"
 		v-else-if="status"
-		>Pending</span
 	>
+		Pending
+	</span>
 	<span
 		class="text-xs font-medium bg-red-500 text-white px-2 py-1 rounded-md"
 		v-else
-		>Canceled</span
 	>
+		Canceled
+	</span>
 </template>
 
 <script setup>

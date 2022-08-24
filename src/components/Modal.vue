@@ -3,7 +3,9 @@
 		tabindex="-1"
 		class="flex items-center justify-center bg-[rgba(0,0,0,.3)] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-screen md:h-full"
 	>
-		<div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+		<div
+			class="relative p-4 w-full max-w-2xl lg:max-w-6xl h-full md:h-auto"
+		>
 			<!-- Modal content -->
 			<div
 				v-on-click-outside="handleClose"

@@ -24,6 +24,7 @@
 				<Heading>Delivery Date</Heading>
 				<Heading>Sub Total</Heading>
 				<Heading>VAT Total</Heading>
+				<Heading>Discount Total</Heading>
 				<Heading>Total</Heading>
 				<Heading>Status</Heading>
 				<Heading action></Heading>
@@ -49,6 +50,9 @@
 					{{ order.vatTotal }}
 				</Cell>
 				<Cell>
+					{{ order.discountTotal }}
+				</Cell>
+				<Cell>
 					<b>{{ order.total }}</b>
 				</Cell>
 				<Cell>
@@ -56,7 +60,7 @@
 				</Cell>
 				<Cell>
 					<Dropdown title="Options">
-						<DropdownItem @click="showNotImplemented">
+						<DropdownItem @click="showOrderDetails(order)">
 							Show Details
 						</DropdownItem>
 						<DropdownItem @click="showNotImplemented">
@@ -70,6 +74,12 @@
 			</TRow>
 		</Table>
 	</AppLayout>
+
+	<OrderDetailsModal
+		v-if="selectedOrder"
+		:order="selectedOrder"
+		@close="handleDetailModalClose"
+	/>
 </template>
 
 <script setup>
@@ -88,6 +98,7 @@ import DropdownItem from '../components/DropdownItem.vue'
 import Input from '../components/form/Input.vue'
 import Button from '../components/Button.vue'
 import OrderStatusBadge from '../components/OrderStatusBadge.vue'
+import OrderDetailsModal from '../components/OrderDetailsModal.vue'
 
 const orderStore = useOrderStore()
 
@@ -102,6 +113,8 @@ const endDate = ref('')
 
 const orders = computed(() => orderStore.orders)
 
+const selectedOrder = ref(null)
+
 const showNotImplemented = () => {
 	toaster.warning('This action is not implemented yet!')
 }
@@ -110,6 +123,14 @@ const fetchOrders = async () => {
 	await orderStore.fetchOrders({
 		endDate: endDate.value,
 	})
+}
+
+const showOrderDetails = (order) => {
+	selectedOrder.value = order
+}
+
+const handleDetailModalClose = () => {
+	selectedOrder.value = null
 }
 
 onBeforeMount(async () => {

@@ -6,30 +6,15 @@
 		no-footer
 	>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<ProductDetailAttribute attribute="ID" :value="product.id" />
-			<ProductDetailAttribute attribute="Code" :value="product.code" />
-			<ProductDetailAttribute
-				attribute="Price"
-				:value="product.price.price.price"
-			/>
-			<ProductDetailAttribute attribute="VAT" :value="product.vat" />
-			<ProductDetailAttribute
-				attribute="Type"
-				:value="product.itemType"
-			/>
-			<ProductDetailAttribute
-				attribute="Catalog Code"
-				:value="product.catalogCode"
-			/>
-			<ProductDetailAttribute
-				attribute="Barcode 1"
-				:value="product.barcode1"
-			/>
-			<ProductDetailAttribute
-				attribute="Barcode 2"
-				:value="product.barcode2"
-			/>
-			<ProductDetailAttribute
+			<DetailText attribute="ID" :value="product.id" />
+			<DetailText attribute="Code" :value="product.code" />
+			<DetailText attribute="Price" :value="product.price.price.price" />
+			<DetailText attribute="VAT" :value="product.vat" />
+			<DetailText attribute="Type" :value="product.itemType" />
+			<DetailText attribute="Catalog Code" :value="product.catalogCode" />
+			<DetailText attribute="Barcode 1" :value="product.barcode1" />
+			<DetailText attribute="Barcode 2" :value="product.barcode2" />
+			<DetailText
 				attribute="Stock Status"
 				:value="
 					product.stockStatus.available
@@ -37,7 +22,7 @@
 						: 'Not Available'
 				"
 			/>
-			<ProductDetailAttribute
+			<DetailText
 				attribute="Product Status"
 				:value="product.isNew ? 'New' : 'Old'"
 			/>
@@ -47,7 +32,7 @@
 
 <script setup>
 import Modal from './Modal.vue'
-import ProductDetailAttribute from './ProductDetailAttribute.vue'
+import DetailText from './DetailText.vue'
 
 const { product } = defineProps({
 	product: {

@@ -85,14 +85,14 @@
 				@changePage="handlePageChange"
 			/>
 		</div>
-
-		<ProductDetailsModal
-			v-if="selectedProduct"
-			@close="handleDetailModalClose"
-			:product="selectedProduct"
-		>
-		</ProductDetailsModal>
 	</AppLayout>
+
+	<ProductDetailsModal
+		v-if="selectedProduct"
+		@close="handleDetailModalClose"
+		:product="selectedProduct"
+	>
+	</ProductDetailsModal>
 </template>
 
 <script setup>
