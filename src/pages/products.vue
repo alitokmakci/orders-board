@@ -5,11 +5,7 @@
 				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 			>
 				<div class="mb-6">
-					<Select
-						label="Sayfa Başına Veri:"
-						v-model="perPage"
-						:onChange="fetchProducts"
-					>
+					<Select label="Sayfa Başına Veri:" v-model="perPage">
 						<option value="10">10</option>
 						<option value="20">20</option>
 						<option value="50">50</option>
@@ -163,6 +159,14 @@ onBeforeMount(async () => {
 
 watch(
 	() => sortBy.value,
+	async () => {
+		page.value = 1
+		await fetchProducts()
+	}
+)
+
+watch(
+	() => perPage.value,
 	async () => {
 		page.value = 1
 		await fetchProducts()
