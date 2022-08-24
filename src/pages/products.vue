@@ -164,6 +164,7 @@ onBeforeMount(async () => {
 watch(
 	() => sortBy.value,
 	async () => {
+		page.value = 1
 		await fetchProducts()
 	}
 )

@@ -1,8 +1,8 @@
-import Home from '../pages/home.vue'
-import Login from '../pages/login.vue'
-import Products from '../pages/products.vue'
-import Orders from '../pages/orders.vue'
-import User from '../pages/user.vue'
+import Home from './../pages/home.vue'
+import Login from './../pages/login.vue'
+import Products from './../pages/products.vue'
+import Orders from './../pages/orders.vue'
+import User from './../pages/user.vue'
 
 /**
  * List routes here
