@@ -29,7 +29,7 @@
 					Price
 				</SortableHeading>
 				<Heading>VAT</Heading>
-				<Heading>New Product</Heading>
+				<Heading>Status</Heading>
 				<Heading action></Heading>
 			</template>
 
@@ -57,7 +57,7 @@
 				</Cell>
 				<Cell>
 					<Dropdown title="Options">
-						<DropdownItem @click="showNotImplemented">
+						<DropdownItem @click="showProductDetails(product)">
 							Show Details
 						</DropdownItem>
 						<DropdownItem @click="showNotImplemented">
@@ -85,6 +85,13 @@
 				@changePage="handlePageChange"
 			/>
 		</div>
+
+		<ProductDetailsModal
+			v-if="selectedProduct"
+			@close="handleDetailModalClose"
+			:product="selectedProduct"
+		>
+		</ProductDetailsModal>
 	</AppLayout>
 </template>
 
@@ -106,12 +113,15 @@ import Card from '../components/Card.vue'
 import Select from '../components/form/Select.vue'
 import SortableHeading from '../components/table/SortableHeading.vue'
 import NewProductBadge from '../components/NewProductBadge.vue'
+import ProductDetailsModal from '../components/ProductDetailsModal.vue'
 
 const productStore = useProductStore()
 
 const page = ref(1)
 const perPage = ref(10)
 const sortBy = ref('')
+
+const selectedProduct = ref(null)
 
 const products = computed(() => productStore.products)
 
@@ -151,6 +161,14 @@ const handleSort = (sortKey) => {
 	sortBy.value = ''
 
 	return
+}
+
+const showProductDetails = (product) => {
+	selectedProduct.value = product
+}
+
+const handleDetailModalClose = () => {
+	selectedProduct.value = null
 }
 
 onBeforeMount(async () => {

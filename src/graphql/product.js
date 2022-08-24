@@ -18,6 +18,9 @@ export const FETCH_PRODUCT_QUERY = gql`
 					}
 				}
 				isNew
+				barcode1
+				barcode2
+				catalogCode
 			}
 		}
 	}
