@@ -1,5 +1,26 @@
 <template>
 	<AppLayout title="Products">
+		<Card class="mb-6">
+			<h1
+				class="mb-6 font-medium text-lg text-gray-600 dark:text-gray-200"
+			>
+				Options
+			</h1>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+				<div class="mb-6">
+					<Select
+						label="Sayfa Başına Veri:"
+						v-model="perPage"
+						:onChange="fetchProducts"
+					>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</Select>
+				</div>
+			</div>
+		</Card>
 		<Table>
 			<template #head>
 				<Heading>#</Heading>
@@ -38,7 +59,9 @@
 				</Cell>
 			</TRow>
 		</Table>
-		<div class="mt-6 flex items-center justify-between">
+		<div
+			class="mt-6 flex lg:flex-row flex-col items-center justify-between"
+		>
 			<ResultsText
 				:page="page"
 				:per-page="perPage"
@@ -71,6 +94,8 @@ import StockStatusBadge from '../components/StockStatusBadge.vue'
 import toaster from '../utils/toaster'
 import Pagination from '../components/Pagination.vue'
 import ResultsText from '../components/ResultsText.vue'
+import Card from '../components/Card.vue'
+import Select from '../components/form/Select.vue'
 
 const productStore = useProductStore()
 
