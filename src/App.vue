@@ -1,7 +1,5 @@
 <template>
-	<Suspense>
-		<router-view />
-	</Suspense>
+	<router-view />
 
 	<div class="toast-container"></div>
 

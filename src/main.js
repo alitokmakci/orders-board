@@ -25,7 +25,7 @@ app.use(store)
 app.use(router)
 
 // Initialize necessery properties
-await initializeApp()
-
-// Mount the app
-app.mount('#app')
+initializeApp().then(() => {
+	// Mount the app
+	app.mount('#app')
+})
