@@ -26,7 +26,7 @@
 						<DropdownItem as="link" to="/user">
 							Account
 						</DropdownItem>
-						<DropdownItem> Logout </DropdownItem>
+						<DropdownItem @click="logout"> Logout </DropdownItem>
 					</Dropdown>
 				</div>
 			</div>
@@ -36,6 +36,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import useTemplateStore from '../store/useTemplateStore'
 import useUserStore from '../store/useUserStore'
 import Button from './Button.vue'
@@ -44,6 +45,7 @@ import DropdownItem from './DropdownItem.vue'
 
 const templateStore = useTemplateStore()
 const userStore = useUserStore()
+const router = useRouter()
 
 const handleToggle = () => {
 	templateStore.toggleSidebar()
@@ -58,4 +60,17 @@ const darkModeIcon = computed(() => {
 })
 
 const user = computed(() => userStore.user)
+
+const logout = async () => {
+	try {
+		const result = await userStore.logout()
+
+		if (result) {
+			router.push('/login')
+		}
+	} catch (e) {
+		// TODO Show Error
+		console.log(e)
+	}
+}
 </script>

@@ -14,3 +14,9 @@ export const FETCH_USER_QUERY = gql`
 		}
 	}
 `
+
+export const LOGOUT_MUTATION = gql`
+	mutation logout {
+		logout
+	}
+`

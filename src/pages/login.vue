@@ -39,14 +39,11 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import Cookies from 'js-cookie'
-import { useMutation } from '@vue/apollo-composable'
 import useUserStore from '../store/useUserStore'
 import Input from '../components/form/Input.vue'
 import Form from '../components/form/Form.vue'
 import Button from '../components/Button.vue'
 import Alert from '../components/Alert.vue'
-import { LOGIN_MUTATION } from '../graphql/user'
 
 const router = useRouter()
 
@@ -59,31 +56,16 @@ const credentials = reactive({
 
 const error = ref('')
 
-const login = () => {
+const login = async () => {
 	error.value = ''
-	loginMutation()
+	try {
+		const result = await userStore.login(credentials)
+		if (result) {
+			await userStore.fetchUser()
+			router.push('/')
+		}
+	} catch (e) {
+		error.value = e
+	}
 }
-
-const {
-	mutate: loginMutation,
-	onDone,
-	onError,
-} = useMutation(LOGIN_MUTATION, () => ({
-	variables: {
-		email: credentials.email,
-		password: credentials.password,
-	},
-}))
-
-onDone((res) => {
-	const token = res.data.login
-	Cookies.set('GQ_TOKEN', token)
-	userStore.fetchUser(token)
-
-	router.push('/')
-})
-
-onError((e) => {
-	error.value = JSON.parse(e.message).message
-})
 </script>
