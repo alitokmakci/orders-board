@@ -27,6 +27,7 @@ const useProductStore = defineStore('productStore', {
 				{
 					index: payload.index,
 					limit: payload.limit,
+					sortBy: payload.sortBy,
 				},
 				{
 					fetchPolicy: 'network-only',

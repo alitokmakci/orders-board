@@ -24,7 +24,16 @@
 				<Heading>Code</Heading>
 				<Heading>Type</Heading>
 				<Heading>Stock Status</Heading>
-				<Heading>Price</Heading>
+				<SortableHeading
+					:key="sortBy"
+					:sort-by="sortBy"
+					sort-key="PRICE"
+					@sort="handleSort('PRICE')"
+				>
+					Price
+				</SortableHeading>
+				<Heading>VAT</Heading>
+				<Heading>New Product</Heading>
 				<Heading action></Heading>
 			</template>
 
@@ -43,6 +52,12 @@
 				</Cell>
 				<Cell>
 					{{ product.price.price.price }}
+				</Cell>
+				<Cell>
+					{{ product.vat }}
+				</Cell>
+				<Cell>
+					<NewProductBadge :status="product.isNew" />
 				</Cell>
 				<Cell>
 					<Dropdown title="Options">
@@ -93,11 +108,14 @@ import Pagination from '../components/Pagination.vue'
 import ResultsText from '../components/ResultsText.vue'
 import Card from '../components/Card.vue'
 import Select from '../components/form/Select.vue'
+import SortableHeading from '../components/table/SortableHeading.vue'
+import NewProductBadge from '../components/NewProductBadge.vue'
 
 const productStore = useProductStore()
 
 const page = ref(1)
 const perPage = ref(10)
+const sortBy = ref('')
 
 const products = computed(() => productStore.products)
 
@@ -111,6 +129,7 @@ const fetchProducts = async () => {
 	await productStore.fetchProducts({
 		index: page.value * perPage.value,
 		limit: perPage.value,
+		sortBy: sortBy.value,
 	})
 }
 
@@ -120,7 +139,32 @@ const handlePageChange = async (_page) => {
 	await fetchProducts()
 }
 
+const handleSort = (sortKey) => {
+	if (!sortBy.value.includes(sortKey)) {
+		sortBy.value = `${sortKey}_ASC`
+
+		return
+	}
+
+	if (sortBy.value.endsWith('ASC')) {
+		sortBy.value = `${sortKey}_DESC`
+
+		return
+	}
+
+	sortBy.value = ''
+
+	return
+}
+
 onBeforeMount(async () => {
 	await fetchProducts()
 })
+
+watch(
+	() => sortBy.value,
+	async () => {
+		await fetchProducts()
+	}
+)
 </script>

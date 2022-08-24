@@ -59,7 +59,7 @@ const useUserStore = defineStore('userStore', {
 
 				onDone((res) => {
 					const token = res.data.login
-					Cookies.set('GQ_TOKEN', token)
+					Cookies.set('GQ_TOKEN', token, { expires: 15 })
 
 					this.loggedIn = true
 					resolve(true)

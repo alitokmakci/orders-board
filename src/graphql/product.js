@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const FETCH_PRODUCT_QUERY = gql`
-	query fetchProducts($index: Int!, $limit: Int!) {
-		products(index: $index, limit: $limit) {
+	query fetchProducts($index: Int!, $limit: Int!, $sortBy: String) {
+		products(index: $index, limit: $limit, sortBy: $sortBy) {
 			count
 			products {
 				id
@@ -10,12 +10,14 @@ export const FETCH_PRODUCT_QUERY = gql`
 				stockStatus {
 					available
 				}
+				vat
 				itemType
 				price {
 					price {
 						price
 					}
 				}
+				isNew
 			}
 		}
 	}
