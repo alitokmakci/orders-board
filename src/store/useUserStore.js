@@ -8,7 +8,9 @@ import { DefaultApolloClient } from '@vue/apollo-composable'
 import { computed, watchEffect } from 'vue'
 
 const useUserStore = defineStore('userStore', {
-	state: () => ({}),
+	state: () => ({
+		user: {},
+	}),
 	getters: {
 		getToken() {
 			return Cookies.get('token')
@@ -29,7 +31,7 @@ const useUserStore = defineStore('userStore', {
 
 			return new Promise((resolve, reject) => {
 				onResult(({ data }) => {
-					console.log(data)
+					this.user = data.user
 					resolve(true)
 				})
 

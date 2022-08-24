@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@popperjs/core": "^2.11.6",
     "@vue/apollo-composable": "4.0.0-alpha.19",
+    "@vueuse/components": "^9.1.1",
     "autoprefixer": "^10.4.8",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",

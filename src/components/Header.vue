@@ -18,11 +18,16 @@
 						@click="handleSwitchTheme"
 						variant="text"
 						size="sm"
-						class="text-lg mr-2"
+						class="text-lg mr-4"
 					>
 						<i :class="darkModeIcon"></i>
 					</Button>
-					Kullanıcı Adı
+					<Dropdown :title="user.name">
+						<DropdownItem as="link" to="/user">
+							Account
+						</DropdownItem>
+						<DropdownItem> Logout </DropdownItem>
+					</Dropdown>
 				</div>
 			</div>
 		</div>
@@ -32,9 +37,13 @@
 <script setup>
 import { computed } from 'vue'
 import useTemplateStore from '../store/useTemplateStore'
+import useUserStore from '../store/useUserStore'
 import Button from './Button.vue'
+import Dropdown from './Dropdown.vue'
+import DropdownItem from './DropdownItem.vue'
 
 const templateStore = useTemplateStore()
+const userStore = useUserStore()
 
 const handleToggle = () => {
 	templateStore.toggleSidebar()
@@ -47,4 +56,6 @@ const handleSwitchTheme = () => {
 const darkModeIcon = computed(() => {
 	return templateStore.isDarkModeEnabled ? 'ri-moon-line' : 'ri-sun-line'
 })
+
+const user = computed(() => userStore.user)
 </script>

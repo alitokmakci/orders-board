@@ -2,8 +2,10 @@ lockfileVersion: 5.4
 
 specifiers:
   '@apollo/client': ^3.6.9
+  '@popperjs/core': ^2.11.6
   '@vitejs/plugin-vue': ^3.0.3
   '@vue/apollo-composable': 4.0.0-alpha.19
+  '@vueuse/components': ^9.1.1
   autoprefixer: ^10.4.8
   graphql: ^16.6.0
   graphql-tag: ^2.12.6
@@ -17,7 +19,9 @@ specifiers:
 
 dependencies:
   '@apollo/client': 3.6.9_graphql@16.6.0
+  '@popperjs/core': 2.11.6
   '@vue/apollo-composable': 4.0.0-alpha.19_2i4tvhxnxzwyn6pjz2v4e2cs4y
+  '@vueuse/components': 9.1.1_vue@3.2.37
   autoprefixer: 10.4.8_postcss@8.4.16
   graphql: 16.6.0
   graphql-tag: 2.12.6_graphql@16.6.0
@@ -123,6 +127,14 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: false
+
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
+  /@types/web-bluetooth/0.0.15:
+    resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}
     dev: false
 
   /@vitejs/plugin-vue/3.0.3_vite@3.0.9+vue@3.2.37:
@@ -233,6 +245,42 @@ packages:
 
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
+
+  /@vueuse/components/9.1.1_vue@3.2.37:
+    resolution: {integrity: sha512-wJDZb8zwBQgMdrbQ+tE1PFFGUK50/2xJBSlc4g+5DPfQeSNgGEJlXmgs7ExJJ1qVpsLrVDwDHPnLX9D6raGEIA==}
+    dependencies:
+      '@vueuse/core': 9.1.1_vue@3.2.37
+      '@vueuse/shared': 9.1.1_vue@3.2.37
+      vue-demi: 0.13.9_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/core/9.1.1_vue@3.2.37:
+    resolution: {integrity: sha512-QfuaNWRDMQcCUwXylCyYhPC3ScS9Tiiz4J0chdwr3vOemBwRToSywq8MP+ZegKYFnbETzRY8G/5zC+ca30wrRQ==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.15
+      '@vueuse/metadata': 9.1.1
+      '@vueuse/shared': 9.1.1_vue@3.2.37
+      vue-demi: 0.13.9_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/metadata/9.1.1:
+    resolution: {integrity: sha512-XZ2KtSW+85LLHB/IdGILPAtbIVHasPsAW7aqz3BRMzJdAQWRiM/FGa1OKBwLbXtUw/AmjKYFlZJo7eOFIBXRog==}
+    dev: false
+
+  /@vueuse/shared/9.1.1_vue@3.2.37:
+    resolution: {integrity: sha512-c+IfcOYmHiHqoEa3ED1Tbpue5GHmoUmTp8PtO4YbczthtY155Rt6DmWhjxMLXBF1Bcidagxljmp/7xtAzEHXLw==}
+    dependencies:
+      vue-demi: 0.13.9_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
 
   /@wry/context/0.6.1:
     resolution: {integrity: sha512-LOmVnY1iTU2D8tv4Xf6MVMZZ+juIJ87Kt/plMijjN20NMAXGmH4u8bS1t0uT74cZ5gwpocYueV58YwyI8y+GKw==}
