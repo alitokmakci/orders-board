@@ -25,7 +25,11 @@ app.use(store)
 app.use(router)
 
 // Initialize necessery properties
-initializeApp().then(() => {
-	// Mount the app
-	app.mount('#app')
-})
+initializeApp()
+	.then(() => {
+		// Mount the app
+		app.mount('#app')
+	})
+	.catch(() => {
+		window.location.href = '/login'
+	})
