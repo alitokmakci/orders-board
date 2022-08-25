@@ -5,6 +5,7 @@ import { defineStore } from 'pinia'
 import { FETCH_ORDER_QUERY } from '../graphql/order'
 import apolloClient from '../utils/apollo'
 import useTemplateStore from './useTemplateStore'
+import toaster from '../utils/toaster'
 
 provideApolloClient(apolloClient)
 
@@ -47,8 +48,8 @@ const useOrderStore = defineStore('orderStore', {
 				})
 
 				onError((error) => {
-					// TODO Show Error Dialog
-					console.log(error)
+					toaster.error(error.message)
+
 					resolve(false)
 				})
 			})

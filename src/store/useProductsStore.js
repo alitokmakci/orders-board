@@ -52,8 +52,7 @@ const useProductStore = defineStore('productStore', {
 				})
 
 				onError((error) => {
-					// TODO Show Error Dialog
-					console.log(error)
+					toaster.error(error.message)
 					resolve(false)
 				})
 			})

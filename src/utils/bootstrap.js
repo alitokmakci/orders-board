@@ -10,6 +10,10 @@ export const initializeApp = async () => {
 
 	// Check if user token cookie exist
 	if (Cookies.get('GQ_TOKEN')) {
-		await useUserStore().fetchUser()
+		const result = await useUserStore().fetchUser()
+
+		if (!result) {
+			window.location.href = '/login'
+		}
 	}
 }

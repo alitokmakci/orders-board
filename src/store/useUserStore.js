@@ -1,6 +1,7 @@
 import { watch } from 'vue'
 import { defineStore } from 'pinia'
 import Cookies from 'js-cookie'
+
 import {
 	useQuery,
 	provideApolloClient,
@@ -106,9 +107,9 @@ const useUserStore = defineStore('userStore', {
 					resolve(true)
 				})
 
-				onError((error) => {
-					// TODO Show Error
+				onError(() => {
 					Cookies.remove('GQ_TOKEN')
+
 					resolve(false)
 				})
 			})
