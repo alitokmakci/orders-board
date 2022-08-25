@@ -2,6 +2,8 @@
 
 Simple dashboard with minimalistic design. 😉
 
+Visit Live App: [OrdersBoard Web App](https://orders-board.vercel.app/)
+
 # Installation
 
 ```shell
