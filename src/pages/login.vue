@@ -3,16 +3,20 @@
 		class="h-screen w-screen flex flex-col items-center justify-center px-8"
 	>
 		<div class="mb-8 text-center">
-			<h1 class="font-medium text-2xl text-gray-500 text-center">
+			<h1
+				class="font-medium text-2xl text-gray-500 text-center dark:text-gray-100"
+			>
 				Welcome to OrdersBoard
 			</h1>
-			<p class="font-extralight">
+			<p class="font-extralight dark:text-gray-200">
 				You can list your orders and products with this panel.
 			</p>
 		</div>
-		<div class="bg-white w-full md:w-[30rem] rounded-md">
+		<div class="bg-white w-full md:w-[30rem] rounded-md dark:bg-slate-800">
 			<div class="px-6 py-4">
-				<h1 class="text-xl text-center">Login with Credentials</h1>
+				<h1 class="text-xl text-center dark:text-gray-100">
+					Login with Credentials
+				</h1>
 			</div>
 			<div class="p-6">
 				<Alert v-if="error" :message="error" />
