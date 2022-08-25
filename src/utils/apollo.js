@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 // HTTP connection to the API
 const httpLink = createHttpLink({
 	// You should use an absolute URL here
-	uri: 'https://simplisaleshw.cotunnel.com/graphql',
+	uri: import.meta.env.VITE_API_URL,
 })
 
 // Create ApolloLink with authorization header
